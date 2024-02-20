@@ -1,13 +1,52 @@
 [
     {
-        "filename": "image_01.jpg",
-        "thumbnail": "image_01-optimised.jpg",
-        "date": "2021-01-01",
-        "location": "Location Name",
-        "camera": "Camera Model",
-        "exposure": "1/100 sec",
-        "aperture": "f/2.8",
-        "iso": "100",
-        "otherMetadata": "Value"
+        "filename": "IMG_5810.png",
+        "date": "Unknown",
+        "camera": "Unknown"
+    },
+    {
+        "filename": "IMG_5396.png",
+        "date": "Unknown",
+        "camera": "Unknown"
+    },
+    {
+        "filename": "IMG_5861.png",
+        "date": "Unknown",
+        "camera": "Unknown"
+    },
+    {
+        "filename": "IMG_5645.png",
+        "date": "Unknown",
+        "camera": "Unknown"
+    },
+    {
+        "filename": "IMG_5538.png",
+        "date": "Unknown",
+        "camera": "Unknown"
+    },
+    {
+        "filename": "IMG_5289.png",
+        "date": "Unknown",
+        "camera": "Unknown"
+    },
+    {
+        "filename": "IMG_5842.png",
+        "date": "Unknown",
+        "camera": "Unknown"
+    },
+    {
+        "filename": "IMG_5923.png",
+        "date": "Unknown",
+        "camera": "Unknown"
+    },
+    {
+        "filename": "IMG_5985.png",
+        "date": "Unknown",
+        "camera": "Unknown"
+    },
+    {
+        "filename": "IMG_5349.png",
+        "date": "Unknown",
+        "camera": "Unknown"
     }
 ]
