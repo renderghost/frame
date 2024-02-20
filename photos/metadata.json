@@ -1,0 +1,13 @@
+[
+    {
+        "filename": "image_01.jpg",
+        "thumbnail": "image_01-optimised.jpg",
+        "date": "2021-01-01",
+        "location": "Location Name",
+        "camera": "Camera Model",
+        "exposure": "1/100 sec",
+        "aperture": "f/2.8",
+        "iso": "100",
+        "otherMetadata": "Value"
+    }
+]
