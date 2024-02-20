@@ -1,0 +1,12 @@
+.gallery {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+/* Responsive layout switch */
+@media (max-width: 600px) {
+	.gallery {
+		flex-direction: column;
+	}
+}
