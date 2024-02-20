@@ -12,6 +12,15 @@ This project is a responsive photo gallery designed to showcase a collection of 
 - **Lazy Loading**: Images are loaded on demand to improve performance and user experience.
 - **Infinite Scrolling**: Allows users to cycle through the images in a loop without interruption.
 
+## Populating your gallery
+
+Add your photos to `/photos` folder.
+
+Add the metadata to `/photos/metadata.json/`.
+
+> ![Note]
+> Use my [Extraction script](https://github.com/renderedghost/frame-metadata) to automate extracting metadata.
+
 ## Credits
 
 - [Slick Slider](https://kenwheeler.github.io/slick/) - for carousel functionality
