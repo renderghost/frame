@@ -19,8 +19,11 @@ document.addEventListener('DOMContentLoaded', function () {
                     <div class="photo-info">
                         <p>Date: ${photo.date.replace(/:/g, '-')}</p>
                         <p>Camera: ${photo.camera}</p>
-                        <p>Exposure: ${photo.exposure}, Aperture: f/${aperture}, ISO: ${photo.iso}</p>
-                        <p>Focal Length: ${focalLength}mm, Flash: ${photo.flash}, Orientation: ${photo.orientation}</p>
+                        <p>Exposure: ${photo.exposure}</p>
+                        <p>Aperture: f/${aperture}</p>
+                        <p>ISO: ${photo.iso}</p>
+                        <p>Focal Length: ${focalLength}mm, Flash: ${photo.flash}</p>
+                        <p>Orientation: ${photo.orientation}</p>
                         <p>Image Dimensions: ${photo.image_width}x${photo.image_height}</p>
                         <p>Lens Model: ${photo.lens_model}</p>
                     </div>
