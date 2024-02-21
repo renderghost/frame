@@ -131,7 +131,7 @@ p.site-description {
 
 #sidebar {
 	grid-area: 1 / 1 / 6 / 2;
-	border-right: var(--size-small-xx) solid var(--color-mono-40);
+	/* border-right: var(--size-small-xx) solid var(--color-mono-40); */
 	padding: var(--size-large-xx);
 	box-sizing: border-box;
 }
@@ -175,20 +175,37 @@ p.site-description {
 	cursor: pointer;
 }
 
+#image-viewer .background {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-size: cover;
+	transform: scale(5);
+	background-position: center;
+	filter: blur(16px) brightness(30%);
+	z-index: 1;
+}
+
 #image-viewer {
 	grid-area: 1 / 2 / 6 / 5;
 	background-color: black;
 	padding: 4rem;
 	box-sizing: border-box;
 	text-align: center;
+	position: relative;
 }
 
 #image-viewer img {
-	border: var(--size-small-xx) solid var(--color-mono-40);
 	display: inline-block;
 	height: 100%;
 	max-height: 100%;
 	width: auto;
+	position: relative;
+	zindex: 2;
+	border-radius: var(--size-small-x);
 }
 
 #meta-viewer {

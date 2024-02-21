@@ -34,13 +34,33 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function loadPhotoToShowcase(photo) {
         // Clear previous content
-        imageViewContainer.innerHTML = '';
+        imageViewContainer.innerHTML = '<div class="background"></div>'; // Reset with background layer
         metaViewContainer.innerHTML = '';
+
+        const backgroundLayer = imageViewContainer.querySelector('.background');
+        // Set the background layer with the image
+        backgroundLayer.style.backgroundImage = `url(photos/${photo.filename})`;
+        backgroundLayer.style.position = 'absolute';
+        backgroundLayer.style.top = '0';
+        backgroundLayer.style.left = '0';
+        backgroundLayer.style.width = '100%';
+        backgroundLayer.style.height = '100%';
+        backgroundLayer.style.backgroundSize = 'cover';
+        backgroundLayer.style.backgroundPosition = 'center';
+        backgroundLayer.style.transform = 'scale(5)';
+        backgroundLayer.style.filter = 'blur(12px) brightness(33%)';
+        backgroundLayer.style.zIndex = '1';
+
+        // Ensure imageViewContainer is positioned relatively
+        imageViewContainer.style.position = 'relative';
+        imageViewContainer.style.overflow = 'hidden';
 
         // Create and append the full-size image
         const fullImg = document.createElement('img');
         fullImg.src = `photos/${photo.filename}`;
         fullImg.alt = `Photo taken by ${photo.camera}`;
+        fullImg.style.position = 'relative';
+        fullImg.style.zIndex = '2'; // Ensure the image is above the background
         imageViewContainer.appendChild(fullImg);
 
         // Create the table for metadata
