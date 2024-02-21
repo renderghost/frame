@@ -2,23 +2,25 @@
 
 html {
 	font-size: 16px;
-	line-height: 1.5rem;
-	height: 100%;
 }
 
 body {
 	display: flex;
 	flex-direction: column;
-	height: 100%;
-	margin: 0;
 	gap: 0;
+	margin: 0;
+	font-size: 1rem;
+	line-height: 1.5rem;
+	min-height: 100vh;
 }
 
 /* Layout */
 
-header {
+header,
+footer {
 	display: flex;
 	flex-direction: row;
+	flex-basis: content;
 	gap: 1rem;
 	padding: 1rem;
 }
@@ -28,67 +30,58 @@ main {
 	flex-direction: column;
 	gap: 0;
 	padding: 0;
-	height: auto;
-	flex: 1;
-	height: 100%;
+	flex-grow: 1;
+	min-height: 100%;
+	max-height: 100%;
 }
 
-footer {
-	display: flex;
-	flex-direction: row;
-	gap: 1rem;
-	padding: 1rem;
-	/* height: 50px; Temp */
-	height: auto;
+/* Fonts */
+
+h1 {
+	display: block;
+	font-size: 2rem;
+	margin: 0;
+	font-weight: bold;
 }
 
 /* Gallery */
 
-/* .gallery {
+@media (max-width: 600px) {
+}
+
+.slick-slider,
+.slick-list,
+.slick-track {
+	position: relative;
+	display: flex;
+}
+
+.slick-slider {
 	display: flex;
 	flex-direction: row;
 	justify-content: flex-start;
-	overflow-x: auto;
-	gap: 1px;
-} */
+}
 
-/* .gallery .slick-list,
-.gallery .slick-track {
-height: 100%;
-} */
+.slide-content {
+	display: block;
+}
 
-/* Responsive layout switch */
-/* @media (max-width: 600px) {
-	.gallery {
-		flex-direction: column;
-	}
-} */
-
-/* Content */
-
-.photo-item {
-	align-items: flex-start;
+.slide {
 	display: flex;
 	flex-direction: row;
 	gap: 1rem;
-	margin: 0;
-	text-align: center;
-	justify-content: flex-start;
 	flex: 1;
-	/* overflow: hidden; */
 }
 
-/* .photo-image {
-	display: flex;
-	flex-direction: column;
-	gap: 0.5rem;
-	flex: 1;
-} */
+.photo-image {
+	/* display: flex; */
+	/* flex-direction: column; */
+}
 
-/* .photo-image {
-	display: block;
-	height: 100%;
-} */
+.photo-image {
+	/* display: block; */
+	/* height: 100%; */
+}
 
 img {
 	display: block;
@@ -97,17 +90,17 @@ img {
 	width: auto;
 }
 
-/* .photo-info {
-	display: flex;
-	flex-direction: column;
-	gap: 0.5rem;
-	flex: 1;
-} */
-
-/* .photo-info p {
-	text-align: left;
-} */
+.photo-info {
+	/* display: flex; */
+	/* flex-direction: column; */
+	/* gap: 0.5rem; */
+	/* flex: 1; */
+}
 
 .photo-info {
-	display: none;
+	/* display: none; */
+}
+
+.photo-info p {
+	/* text-align: left; */
 }
