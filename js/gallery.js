@@ -3,6 +3,24 @@ document.addEventListener('DOMContentLoaded', function () {
     const imageViewContainer = document.querySelector('#image-viewer');
     const metaViewContainer = document.querySelector('#meta-viewer');
 
+    // Setup Intersection Observer
+    const observerOptions = {
+        root: null, // null means the viewport
+        threshold: 0.1, // Callback is executed when 10% of the target is visible
+        rootMargin: "0px" // No margin
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target.querySelector('img');
+                img.src = img.dataset.src; // Assuming lazy loading with data-src attribute
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target); // Optional: Stop observing the target
+            }
+        });
+    }, observerOptions);
+
     fetch('photos/metadata.json')
         .then(response => response.json())
         .then(data => {
@@ -23,6 +41,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 const img = document.createElement('img');
                 img.src = `photos/${photo.filename}`;
                 img.alt = `Thumbnail for ${photo.camera}`;
+                img.loading = "lazy"
+                img.onload = () => {
+                    img.style.opacity = 1;
+                };
                 img.className = 'thumbnail-content';
 
                 thumbnailWrapper.appendChild(img);
@@ -76,9 +98,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Create the table for metadata
         const table = document.createElement('table');
-        table.className = 'meta-table'; // Add a class for styling
-
-        // HTML string for table rows
+        table.className = 'meta-table';
         const tableHtml = `
             <h2 class="viewer-title">Specification</h2>
             <tr class="row"><td class="meta-label">Camera:</td><td class="meta-value">${photo.camera}</td></tr>
