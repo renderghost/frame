@@ -13,8 +13,6 @@ document.addEventListener('DOMContentLoaded', function () {
             });
 
             sortedData.forEach((photo, index) => {
-                // Your existing code to create and append thumbnails
-                // Ensure this part uses 'sortedData' instead of 'data'
                 const thumbnailWrapper = document.createElement('div');
                 thumbnailWrapper.className = 'thumbnail';
                 thumbnailWrapper.setAttribute('role', 'button');
@@ -30,6 +28,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 thumbnailWrapper.appendChild(img);
                 gridContainer.appendChild(thumbnailWrapper);
             });
+
+            // Automatically load the first photo into the showcase if sortedData is not empty
+            if (sortedData.length > 0) {
+                loadPhotoToShowcase(sortedData[0]);
+            }
         })
         .catch(error => console.error('Error loading gallery metadata:', error));
 
