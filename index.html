@@ -4,32 +4,36 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Some Title</title>
-		<!-- Slick CSS -->
-		<link rel="stylesheet" href="css/slick.css" />
-		<link rel="stylesheet" href="css/slick-theme.css" />
+		<!-- Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=DM+Serif+Display:ital@0;1&family=DM+Serif+Text:ital@0;1&display=swap"
+			rel="stylesheet"
+		/>
 		<!-- Custom Style CSS -->
 		<link rel="stylesheet" href="css/style.css" />
 	</head>
-	<body>
-		<header>
-			<h1>The Frame</h1>
-		</header>
-		<main>
-			<div class="gallery">
-				<!-- Your gallery items will be inserted here -->
-			</div>
-		</main>
-		<footer>
-			<a href="#" target="_blank">Some Links</a>
-			<a href="#" target="_blank">Some Links</a>
-			<a href="#" target="_blank">Some Links</a>
-			<a href="#" target="_blank">Some Links</a>
-			<a href="#" target="_blank">Some Links</a>
-		</footer>
-		<!-- jQuery -->
-		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-		<!-- Slick Slider JavaScript -->
-		<script src="js/slick.min.js"></script>
+	<body id="container">
+		<!-- Content Starts Here -->
+		<div id="sidebar">
+			<header id="title">
+				<h1 class="site-name">The Frame</h1>
+				<p class="site-description">Some blah</p>
+			</header>
+			<nav id="grid">
+				<!-- Insert navigation here. -->
+			</nav>
+		</div>
+
+		<div id="image-viewer">
+			<!-- Insert image here -->
+		</div>
+
+		<div id="meta-viewer">
+			<!-- Insert metadata here -->
+		</div>
+
 		<!-- Custom Gallery JavaScript -->
 		<script src="js/gallery.js"></script>
 	</body>
