@@ -38,22 +38,28 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function loadPhotoToShowcase(photo) {
         // Clear previous content
-        imageViewContainer.innerHTML = '<div class="background"></div>'; // Reset with background layer
+        imageViewContainer.innerHTML = ''; // Clearing to ensure fresh start
         metaViewContainer.innerHTML = '';
 
-        const backgroundLayer = imageViewContainer.querySelector('.background');
-        // Set the background layer with the image
-        backgroundLayer.style.backgroundImage = `url(photos/${photo.filename})`;
+        // Create or select the background layer
+        let backgroundLayer = imageViewContainer.querySelector('.background');
+        if (!backgroundLayer) {
+            backgroundLayer = document.createElement('div');
+            backgroundLayer.className = 'background';
+            imageViewContainer.prepend(backgroundLayer); // Ensure it's the first child
+        }
+
+        // Set styles for the background layer to display the blurred image
+        backgroundLayer.style.backgroundImage = `url('photos/${photo.filename}')`;
+        backgroundLayer.style.backgroundSize = 'cover';
+        backgroundLayer.style.backgroundPosition = 'center';
+        backgroundLayer.style.filter = 'blur(8px) brightness(50%)';
         backgroundLayer.style.position = 'absolute';
         backgroundLayer.style.top = '0';
         backgroundLayer.style.left = '0';
         backgroundLayer.style.width = '100%';
         backgroundLayer.style.height = '100%';
-        backgroundLayer.style.backgroundSize = 'cover';
-        backgroundLayer.style.backgroundPosition = 'center';
-        backgroundLayer.style.transform = 'scale(5)';
-        backgroundLayer.style.filter = 'blur(12px) brightness(33%)';
-        backgroundLayer.style.zIndex = '1';
+        backgroundLayer.style.zIndex = '-1'; // Ensure it stays behind the main image
 
         // Ensure imageViewContainer is positioned relatively
         imageViewContainer.style.position = 'relative';
@@ -63,8 +69,9 @@ document.addEventListener('DOMContentLoaded', function () {
         const fullImg = document.createElement('img');
         fullImg.src = `photos/${photo.filename}`;
         fullImg.alt = `Photo taken by ${photo.camera}`;
-        fullImg.style.position = 'relative';
-        fullImg.style.zIndex = '2'; // Ensure the image is above the background
+        fullImg.style.width = '100%'; // Adjust this as needed
+        fullImg.style.height = 'auto'; // Adjust this as needed
+        fullImg.style.zIndex = '1'; // Ensure the image is above the background
         imageViewContainer.appendChild(fullImg);
 
         // Create the table for metadata
