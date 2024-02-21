@@ -1,13 +1,10 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Fetch the metadata.json file
     fetch('photos/metadata.json')
         .then(response => response.json())
         .then(data => {
             const galleryContainer = document.querySelector('.gallery');
-            // Ensure the container is empty before adding new items
-            galleryContainer.innerHTML = '';
+            galleryContainer.innerHTML = ''; // Clear existing items
 
-            // Loop through each item in the metadata array
             data.forEach(photo => {
                 const aperture = parseFloat(photo.aperture.split('/')[0]) / parseFloat(photo.aperture.split('/')[1]).toFixed(1);
                 const focalLength = parseFloat(photo.focal_length.split('/')[0]) / parseFloat(photo.focal_length.split('/')[1]).toFixed(1);
@@ -29,9 +26,46 @@ document.addEventListener('DOMContentLoaded', function () {
                     </div>
                 `;
 
-                // Append the gallery item to the container
                 galleryContainer.appendChild(photoElement);
             });
+
+            // Initialize Slick Slider here, after all slides have been added
+            $(galleryContainer).slick({
+                infinite: true,
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                lazyLoad: 'ondemand',
+                accessibility: true,
+                draggable: true,
+                swipe: true,
+                dots: true,
+                adaptiveHeight: true, // Useful if your images are of varying heights
+                responsive: [
+                    {
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 3
+                        }
+                    },
+                    {
+                        breakpoint: 600,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 2,
+                            dots: true
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }
+                ]
+            });
+
         })
         .catch(error => console.error('Error loading gallery metadata:', error));
 });
