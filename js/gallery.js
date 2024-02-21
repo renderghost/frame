@@ -6,8 +6,15 @@ document.addEventListener('DOMContentLoaded', function () {
     fetch('photos/metadata.json')
         .then(response => response.json())
         .then(data => {
-            data.forEach((photo, index) => {
-                // Create a div to wrap the image and make it more interactive
+            // Sort the data array by date in descending order (newest first)
+            const sortedData = data.sort((a, b) => {
+                // Assuming date format is "YYYY:MM:DD HH:MM:SS" and directly comparable
+                return b.date.localeCompare(a.date);
+            });
+
+            sortedData.forEach((photo, index) => {
+                // Your existing code to create and append thumbnails
+                // Ensure this part uses 'sortedData' instead of 'data'
                 const thumbnailWrapper = document.createElement('div');
                 thumbnailWrapper.className = 'thumbnail';
                 thumbnailWrapper.setAttribute('role', 'button');
@@ -15,7 +22,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 thumbnailWrapper.setAttribute('alt', `Thumbnail for ${photo.camera}`);
                 thumbnailWrapper.addEventListener('click', () => loadPhotoToShowcase(photo));
 
-                // Create and append the thumbnail image to the wrapper
                 const img = document.createElement('img');
                 img.src = `photos/${photo.filename}`;
                 img.alt = `Thumbnail for ${photo.camera}`;
@@ -23,11 +29,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 thumbnailWrapper.appendChild(img);
                 gridContainer.appendChild(thumbnailWrapper);
-
-                // Automatically load the first photo into the showcase
-                if (index === 0) {
-                    loadPhotoToShowcase(photo);
-                }
             });
         })
         .catch(error => console.error('Error loading gallery metadata:', error));
@@ -77,7 +78,6 @@ document.addEventListener('DOMContentLoaded', function () {
             <tr class="row"><td class="meta-label">Focal Length:</td><td class="meta-value">${parseFloat(photo.focal_length.split('/')[0]) / parseFloat(photo.focal_length.split('/')[1])}mm</td></tr>
             <tr class="row"><td class="meta-label">Flash:</td><td class="meta-value">${photo.flash}</td></tr>
             <tr class="row"><td class="meta-label">Orientation:</td><td class="meta-value">${photo.orientation}</td></tr>
-            <tr class="row"><td class="meta-label">Dimensions:</td><td class="meta-value">${photo.image_width}x${photo.image_height}</td></tr>
         `;
 
         table.innerHTML = tableHtml;
