@@ -169,13 +169,13 @@ p.site-description {
 
 .thumbnail-content {
 	display: block;
-	transform: scale(3);
+	transform: scale(2);
 	opacity: 0;
 	transition: all 0.4s ease-in-out;
 }
 
 .thumbnail-content:hover {
-	transform: scale(1.5);
+	transform: scale(1);
 	transition: all 0.4s ease-out;
 	cursor: pointer;
 }
