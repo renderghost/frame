@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 thumbnailWrapper.addEventListener('click', () => loadPhotoToShowcase(photo));
 
                 const img = document.createElement('img');
-                img.src = `photos/${photo.filename}`;
+                img.src = `photos/${photo.thumbnail}`; // Updated line
                 img.alt = `Thumbnail for ${photo.camera}`;
                 img.className = 'thumbnail-content';
 
