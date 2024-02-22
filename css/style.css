@@ -59,17 +59,20 @@ html {
 	--sans: "Noto Sans", sans-serif;
 	--serif: "Noto Serif", serif;
 	--mono: "Noto Sans Mono", monospace;
-	/* --icon: "Font Awesome 6 Sharp"; */
 }
 
-/* .fa-light {
-	font-family: var(--icon);
+.icon {
+	font-family: "Material Symbols Outlined";
+	font-weight: normal;
 	font-style: normal;
-	font-weight: 300;
-	font-display: block;
-	src: url(./webfonts/fa-sharp-light-300.woff2) format("woff2"),
-		url(./webfonts/fa-sharp-light-300.ttf) format("truetype");
-} */
+	display: inline-block;
+	line-height: 1;
+	text-transform: none;
+	letter-spacing: normal;
+	word-wrap: normal;
+	white-space: nowrap;
+	direction: ltr;
+}
 
 :root {
 	--line-height-tight: 1.25em;
