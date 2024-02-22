@@ -1,7 +1,7 @@
 /* Setup */
 
 html {
-	font-size: 13px;
+	font-size: 15px;
 	box-sizing: border-box;
 }
 
@@ -64,9 +64,6 @@ body {
 	font-family: "DM Sans", sans-serif;
 	font-weight: 200;
 	font-style: normal;
-	font-smooth: auto;
-	-webkit-font-smoothing: auto;
-	-moz-osx-font-smoothing: auto;
 	letter-spacing: 0.04em;
 	line-height: var(--line-height-comfort);
 	min-height: 100vh;
@@ -76,7 +73,15 @@ body {
 	background-color: var(--color-mono-0);
 }
 
-h1.site-name {
+a {
+	color: var(--color-yellow-50);
+}
+
+a:hover {
+	color: var(--color-yellow-40);
+}
+
+.site-name {
 	display: block;
 	font-size: var(--size-large-xx);
 	line-height: var(--line-height-comfort);
@@ -84,10 +89,10 @@ h1.site-name {
 	margin-bottom: var(--size-base);
 	font-family: "DM Serif Display", serif;
 	font-weight: 400;
-	font-style: normal;
+	font-style: italic;
 }
 
-h2.viewer-title {
+.viewer-title {
 	display: block;
 	font-size: var(--size-large);
 	line-height: var(--line-height-comfort);
@@ -159,7 +164,7 @@ p.site-description {
 
 .thumbnail {
 	display: inline-flex;
-	width: 5rem;
+	width: 4rem;
 	aspect-ratio: 1;
 	box-sizing: border-box;
 	background-color: var(--color-mono-20);
@@ -169,14 +174,15 @@ p.site-description {
 
 .thumbnail-content {
 	display: block;
-	transform: scale(3);
+	transform: scale(1.5);
 	opacity: 0;
-	transition: all 0.4s ease-in-out;
+	transition: all 0.2s ease-in-out;
+	cursor: pointer;
 }
 
 .thumbnail-content:hover {
-	transform: scale(1.5);
-	transition: all 0.4s ease-out;
+	transform: scale(1);
+	transition: all 0.2s ease-in-out;
 	cursor: pointer;
 }
 
