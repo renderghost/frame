@@ -54,8 +54,8 @@ html {
 }
 
 :root {
-	--line-height-comfort: 1.5rem;
-	--line-height-spacious: 2.5rem;
+	--line-height-comfort: 1.5em;
+	--line-height-spacious: 2.5em;
 }
 
 body {
@@ -81,12 +81,15 @@ a:hover {
 	color: var(--color-yellow-40);
 }
 
+table {
+	margin-bottom: var(--size-base);
+}
+
 .site-name {
 	display: block;
 	font-size: var(--size-large-xx);
 	line-height: var(--line-height-comfort);
 	margin: var(--size-zero);
-	margin-bottom: var(--size-base);
 	font-family: "DM Serif Display", serif;
 	font-weight: 400;
 	font-style: italic;
@@ -141,10 +144,11 @@ a:hover {
 	top: 0;
 	left: 0;
 	width: 100%;
-	height: 100%;
-	transform: scale(4);
+	background-clip: content-box;
+	height: 100vh;
+	max-height: 100vh;
 	z-index: -1; /* Keep it behind the content */
-	filter: blur(8px) brightness(50%);
+	filter: blur(24px) brightness(38%);
 	background-size: cover;
 	background-position: center;
 }
@@ -162,7 +166,7 @@ a:hover {
 
 #title {
 	box-sizing: border-box;
-	margin-bottom: var(--size-base);
+	margin-bottom: var(--size-large-x);
 }
 
 #grid {
@@ -221,8 +225,6 @@ a:hover {
 #image-viewer img {
 	max-width: 100%;
 	max-height: 100%;
-	width: auto;
-	height: auto;
 	position: relative;
 	z-index: 2;
 	object-fit: contain;
@@ -232,7 +234,7 @@ a:hover {
 	grid-area: 1 / 5 / 6 / 6;
 	box-sizing: border-box;
 	padding: var(--size-large-xx);
-	margin: var(--size-large-xx);
+	margin: var(--size-large-xx) var(--size-large-xx) var(--size-large-xx) 0;
 	background: var(--color-mono-0);
 	border-radius: var(--size-small-x);
 }
