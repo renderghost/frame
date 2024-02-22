@@ -1,7 +1,7 @@
 /* Setup */
 
 html {
-	font-size: 15px;
+	font-size: 13px;
 	box-sizing: border-box;
 }
 
@@ -62,7 +62,7 @@ body {
 	margin: 0;
 	font-size: var(--size-base);
 	font-family: "DM Sans", sans-serif;
-	font-weight: 200;
+	font-weight: 300;
 	font-style: normal;
 	letter-spacing: 0.04em;
 	line-height: var(--line-height-comfort);
@@ -101,13 +101,15 @@ a:hover {
 	font-family: "DM Sans", sans-serif;
 	font-weight: 400;
 	font-style: normal;
+	color: var(--color-mono-80);
 }
 
-p.site-description {
+.site-description {
 	display: block;
 	font-size: var(--size-base);
 	line-height: var(--line-height-comfort);
 	margin: var(--size-zero);
+	color: var(--color-mono-80);
 }
 
 .meta-table {
@@ -134,14 +136,28 @@ p.site-description {
 	box-sizing: border-box;
 }
 
+#container .background {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	transform: scale(4);
+	z-index: -1; /* Keep it behind the content */
+	filter: blur(8px) brightness(50%);
+	background-size: cover;
+	background-position: center;
+}
+
 #sidebar {
 	grid-area: 1 / 1 / 6 / 2;
 	display: flex;
 	flex-direction: column;
 	/* border-right: var(--size-small-xx) solid var(--color-mono-40); */
-	padding: var(--size-large-xx);
 	box-sizing: border-box;
 	justify-content: flex-start;
+	padding: var(--size-large-xx);
+	background: var(--color-mono-0);
 }
 
 #title {
@@ -190,22 +206,9 @@ p.site-description {
 	opacity: 1;
 }
 
-#image-viewer .background {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	transform: scale(4);
-	z-index: -1; /* Keep it behind the content */
-	filter: blur(8px) brightness(50%);
-	background-size: cover;
-	background-position: center;
-}
-
 #image-viewer {
 	grid-area: 1 / 2 / 6 / 5;
-	padding: 4rem;
+	padding: var(--size-large-xx);
 	box-sizing: border-box;
 	text-align: center;
 	position: relative;
@@ -230,7 +233,9 @@ p.site-description {
 	grid-area: 1 / 5 / 6 / 6;
 	box-sizing: border-box;
 	padding: var(--size-large-xx);
-	background: var(--color-mono-10);
+	margin: var(--size-large-xx);
+	background: var(--color-mono-0);
+	border-radius: var(--size-small-x);
 }
 
 #meta-viewer table {
