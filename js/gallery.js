@@ -113,8 +113,8 @@ document.addEventListener('DOMContentLoaded', function () {
         // About Section
         const aboutDiv = document.createElement('div');
         aboutDiv.innerHTML = `
+            <p class="dull"><span class="icon">my_location</span> ${photo.location || 'Somewhere'}, on ${formattedDate || 'some date'}</p>
             <p class="large">${photo.description || 'Insert whimsical description text here...'}</p>
-            <p class="dull">${photo.location || 'Somewhere'}, on ${formattedDate || 'some date'}</p>
     `;
         metaViewContainer.appendChild(aboutDiv);
 
@@ -122,11 +122,11 @@ document.addEventListener('DOMContentLoaded', function () {
         const specsDiv = document.createElement('div');
         specsDiv.innerHTML = `
             <table class="meta-table">
-                <tr class="row"><td class="meta-label">Camera:</td><td class="meta-value">${photo.camera}</td></tr>
-                <tr class="row"><td class="meta-label">Exposure:</td><td class="meta-value">${photo.exposure}</td></tr>
-                <tr class="row"><td class="meta-label">Aperture:</td><td class="meta-value">f/${parseFloat(photo.aperture.split('/')[0]) / parseFloat(photo.aperture.split('/')[1])}</td></tr>
-                <tr class="row"><td class="meta-label">ISO:</td><td class="meta-value">${photo.iso}</td></tr>
-                <tr class="row"><td class="meta-label">Focal Length:</td><td class="meta-value">${parseFloat(photo.focal_length.split('/')[0]) / parseFloat(photo.focal_length.split('/')[1])}mm</td></tr>
+                <tr class="row"><td class="meta-label dull"><span class="icon">photo_camera</span> Camera</td><td class="meta-value">${photo.camera}</td></tr>
+                <tr class="row"><td class="meta-label dull"><span class="icon">exposure</span> Exposure</td><td class="meta-value">${photo.exposure}</td></tr>
+                <tr class="row"><td class="meta-label dull"><span class="icon">camera</span> Aperture</td><td class="meta-value">f/${parseFloat(photo.aperture.split('/')[0]) / parseFloat(photo.aperture.split('/')[1])}</td></tr>
+                <tr class="row"><td class="meta-label dull"><span class="icon">grain</span> ISO</td><td class="meta-value">${photo.iso}</td></tr>
+                <tr class="row"><td class="meta-label dull"><span class="icon">center_focus_strong</span> Focal Length</td><td class="meta-value">${parseFloat(photo.focal_length.split('/')[0]) / parseFloat(photo.focal_length.split('/')[1])}mm</td></tr>
             </table>
     `;
         metaViewContainer.appendChild(specsDiv);
@@ -134,17 +134,19 @@ document.addEventListener('DOMContentLoaded', function () {
         // Licensing Section
         const licenseDiv = document.createElement('div');
         licenseDiv.innerHTML = `
+            <div class="spacer"></div>
             <div class="card middle" xmlns:cc="http://creativecommons.org/ns#">
                 <div>
-                        <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1">
-                        <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1">
-                        <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1">
-                        <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1">
+                    <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1">
+                    <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1">
+                    <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1">
+                    <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1">
                 </div>
                 <div>
                     <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer">CC BY-NC-ND 4.0</a>
                 </div>
             </div>
+            <div id="footer"><span class="dull">All photos by Barry Prendergast</span></div>
     `;
         metaViewContainer.appendChild(licenseDiv);
     }
