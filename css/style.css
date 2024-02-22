@@ -1,7 +1,7 @@
 /* Setup */
 
 html {
-	font-size: 13px;
+	font-size: 15px;
 	box-sizing: border-box;
 }
 
@@ -56,20 +56,10 @@ html {
 
 :root {
 	/* font family */
-	--sans: "Noto Sans", sans-serif;
-	--serif: "Noto Serif", serif;
-	--mono: "Noto Sans Mono", monospace;
-	/* --icon: "Font Awesome 6 Sharp"; */
+	--sans: "DM Sans", sans-serif;
+	--serif: "DM Serif", serif;
+	--mono: "DM Mono", monospace;
 }
-
-/* .fa-light {
-	font-family: var(--icon);
-	font-style: normal;
-	font-weight: 300;
-	font-display: block;
-	src: url(./webfonts/fa-sharp-light-300.woff2) format("woff2"),
-		url(./webfonts/fa-sharp-light-300.ttf) format("truetype");
-} */
 
 :root {
 	--line-height-tight: 1.25em;
@@ -81,15 +71,29 @@ body {
 	margin: 0;
 	font-size: var(--size-base);
 	font-family: var(--sans);
-	font-weight: 300;
+	font-weight: 200;
 	font-style: normal;
-	letter-spacing: 0.04em;
 	line-height: var(--line-height-comfort);
 	min-height: 100vh;
 	height: 100vh;
 	max-height: 100vh;
 	color: var(--color-mono-100);
 	background-color: var(--color-mono-0);
+}
+
+.icon {
+	font-family: "Material Symbols Outlined";
+	font-style: normal;
+	font-size: 80%;
+	display: inline-block;
+	position: relative;
+	text-transform: none;
+	letter-spacing: normal;
+	word-wrap: normal;
+	white-space: nowrap;
+	direction: ltr;
+	transform: scale(1.5);
+	margin-right: 2px;
 }
 
 p {
@@ -101,11 +105,10 @@ p.large {
 	font-size: var(--size-large-x);
 	line-height: var(--line-height-tight);
 	font-family: var(--serif);
-	font-weight: 300;
 	font-style: italic;
 }
 
-p.dull {
+.dull {
 	color: var(--color-mono-80);
 }
 
@@ -123,10 +126,11 @@ a:hover {
 }
 
 .sitename {
-	font-size: var(--size-large-x);
+	font-size: var(--size-large);
 	line-height: var(--line-height-comfort);
 	margin: var(--size-zero);
-	font-weight: 600;
+	font-weight: 400;
+	letter-spacing: 0.01em;
 }
 
 /* Layout */
@@ -149,7 +153,7 @@ a:hover {
 	height: 100vh;
 	max-height: 100vh;
 	z-index: -1; /* Keep it behind the content */
-	filter: blur(24px) brightness(24%);
+	filter: blur(32px) brightness(50%);
 	background-size: cover;
 	background-position: center;
 }
@@ -160,13 +164,15 @@ a:hover {
 	flex-direction: column;
 	box-sizing: border-box;
 	justify-content: flex-start;
+	box-sizing: border-box;
 	padding: var(--size-large-xx);
+	margin: var(--size-large-xx) 0 var(--size-large-xx) var(--size-large-xx);
 	background: var(--color-mono-0);
+	border-radius: var(--size-small-x);
 }
 
 #site {
 	box-sizing: border-box;
-	padding: var(--size-large-xx) 0;
 }
 
 #grid {
@@ -174,9 +180,7 @@ a:hover {
 	box-sizing: border-box;
 	display: flex;
 	flex-direction: row;
-	flex-grow: 1;
 	flex-wrap: wrap;
-	gap: var(--size-small-xx);
 	justify-content: flex-start;
 	height: 100%;
 	overflow: auto;
@@ -184,12 +188,14 @@ a:hover {
 
 .thumbnail {
 	display: inline-flex;
-	width: 4rem;
+	width: 20%;
 	aspect-ratio: 1;
 	box-sizing: border-box;
 	background-color: var(--color-mono-20);
+	border: var(--size-small-xx) solid var(--color-mono-0);
 	justify-content: center;
 	overflow: hidden;
+	cursor: pointer;
 }
 
 .thumbnail-content {
@@ -197,13 +203,11 @@ a:hover {
 	transform: scale(1.5);
 	opacity: 0;
 	transition: all 0.2s ease-in-out;
-	cursor: pointer;
 }
 
 .thumbnail-content:hover {
 	transform: scale(1);
 	transition: all 0.2s ease-in-out;
-	cursor: pointer;
 }
 
 .thumbnail-content.is-visible {
@@ -252,9 +256,19 @@ a:hover {
 	box-sizing: border-box;
 	display: flex;
 	flex-direction: row;
-	gap: var(--size-base);
-	justify-content: flex-start;
-	padding: var(--size-large-x);
+	flex-wrap: wrap;
+	gap: var(--size-small);
+	justify-content: space-evenly;
+	padding: var(--size-base);
+}
+
+#footer {
+	display: flex;
+	margin-top: var(--size-base);
+}
+
+.spacer {
+	display: flex;
 }
 
 tr {
@@ -266,7 +280,7 @@ tr:last-child {
 	border-bottom: none;
 }
 
-h2 {
+/* h2 {
 	display: block;
 	font-size: var(--size-large);
 	line-height: var(--line-height-comfort);
@@ -275,7 +289,7 @@ h2 {
 	font-weight: 400;
 	font-style: normal;
 	color: var(--color-mono-80);
-}
+} */
 
 .meta-table {
 	font-size: var(--size-base);
@@ -283,11 +297,12 @@ h2 {
 }
 
 .meta-label {
-	font-weight: 400;
+	font-weight: 300;
 }
 
 .meta-value {
 	font-family: var(--mono);
+	font-size: 98%;
 }
 
 :focus-visible {
