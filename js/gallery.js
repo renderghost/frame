@@ -89,33 +89,44 @@ document.addEventListener('DOMContentLoaded', function () {
         backgroundLayer.style.zIndex = '-1'; // Ensure it stays behind the main image
     }
 
+    function formatDate(dateString) {
+        // Replace colons in the date part with hyphens and create a new Date object
+        const [datePart] = dateString.split(' ');
+        const formattedDatePart = datePart.replace(/:/g, '-');
+        const date = new Date(formattedDatePart);
+
+        // Create an array of month names to use in formatting
+        const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+        // Extract the day, month, and year from the Date object
+        const day = date.getDate();
+        const month = months[date.getMonth()];
+        const year = date.getFullYear();
+
+        // Return the formatted date string
+        return `${day} ${month}, ${year}`;
+    }
+
     function createMetadataTable(photo) {
         metaViewContainer.innerHTML = ''; // Clear existing content
-
+        const formattedDate = formatDate(photo.date); // Convert to "DD MMM, YYYY"
         // About Section
         const aboutDiv = document.createElement('div');
         aboutDiv.innerHTML = `
-            <h2 class="viewer-title">About</h2>
-            <table class="meta-table">
-                <tr class="row"><td class="meta-label">Description:</td><td class="meta-value">${photo.description || 'N/A'}</td></tr>
-                <tr class="row"><td class="meta-label">Location:</td><td class="meta-value">${photo.location || 'Unknown'}</td></tr>
-                <tr class="row"><td class="meta-label">Date:</td><td class="meta-value">${photo.date}</td></tr>
-            </table>
+            <p class="large">${photo.description || 'Insert whimsical description text here...'}</p>
+            <p class="dull">${photo.location || 'Somewhere'}, on ${formattedDate || 'some date'}</p>
     `;
         metaViewContainer.appendChild(aboutDiv);
 
         // Specifications Section
         const specsDiv = document.createElement('div');
         specsDiv.innerHTML = `
-            <h2 class="viewer-title">Specifications</h2>
             <table class="meta-table">
                 <tr class="row"><td class="meta-label">Camera:</td><td class="meta-value">${photo.camera}</td></tr>
                 <tr class="row"><td class="meta-label">Exposure:</td><td class="meta-value">${photo.exposure}</td></tr>
                 <tr class="row"><td class="meta-label">Aperture:</td><td class="meta-value">f/${parseFloat(photo.aperture.split('/')[0]) / parseFloat(photo.aperture.split('/')[1])}</td></tr>
                 <tr class="row"><td class="meta-label">ISO:</td><td class="meta-value">${photo.iso}</td></tr>
                 <tr class="row"><td class="meta-label">Focal Length:</td><td class="meta-value">${parseFloat(photo.focal_length.split('/')[0]) / parseFloat(photo.focal_length.split('/')[1])}mm</td></tr>
-                <tr class="row"><td class="meta-label">Flash:</td><td class="meta-value">${photo.flash}</td></tr>
-                <tr class="row"><td class="meta-label">Orientation:</td><td class="meta-value">${photo.orientation}</td></tr>
             </table>
     `;
         metaViewContainer.appendChild(specsDiv);
@@ -123,13 +134,17 @@ document.addEventListener('DOMContentLoaded', function () {
         // Licensing Section
         const licenseDiv = document.createElement('div');
         licenseDiv.innerHTML = `
-            <h2 class="viewer-title">Licensing</h2>
-            <table class="meta-table">
-                <tr class="row"><td colspan="2">
-                    <p xmlns:cc="http://creativecommons.org/ns#">This work is licensed under <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-ND 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1"></a></p>
-                    <p>Photography by Barry Prendergast. Visit <a href="http://www.domain.com" target="_blank">www.domain.com</a> for more.</p>
-                </td></tr>
-            </table>
+            <div class="card middle" xmlns:cc="http://creativecommons.org/ns#">
+                <div>
+                        <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1">
+                        <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1">
+                        <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1">
+                        <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1">
+                </div>
+                <div>
+                    <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer">CC BY-NC-ND 4.0</a>
+                </div>
+            </div>
     `;
         metaViewContainer.appendChild(licenseDiv);
     }
