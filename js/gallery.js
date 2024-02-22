@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     const gridContainer = document.getElementById('grid');
+    const container = document.getElementById('container');
     const imageViewContainer = document.querySelector('#image-viewer');
     const metaViewContainer = document.querySelector('#meta-viewer');
 
@@ -64,11 +65,11 @@ document.addEventListener('DOMContentLoaded', function () {
         metaViewContainer.innerHTML = '';
 
         // Create or select the background layer
-        let backgroundLayer = imageViewContainer.querySelector('.background');
+        let backgroundLayer = container.querySelector('.background');
         if (!backgroundLayer) {
             backgroundLayer = document.createElement('div');
             backgroundLayer.className = 'background';
-            imageViewContainer.prepend(backgroundLayer); // Ensure it's the first child
+            container.prepend(backgroundLayer); // Ensure it's the first child
         }
 
         // Set styles for the background layer to display the blurred image
@@ -84,8 +85,8 @@ document.addEventListener('DOMContentLoaded', function () {
         backgroundLayer.style.zIndex = '-1'; // Ensure it stays behind the main image
 
         // Ensure imageViewContainer is positioned relatively
-        imageViewContainer.style.position = 'relative';
-        imageViewContainer.style.overflow = 'hidden';
+        container.style.position = 'relative';
+        container.style.overflow = 'hidden';
 
         // Create and append the full-size image
         const fullImg = document.createElement('img');
