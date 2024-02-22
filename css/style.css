@@ -226,7 +226,6 @@ a:hover {
 	position: relative;
 	z-index: 2;
 	object-fit: contain;
-	border-radius: var(--size-small-x);
 }
 
 #meta-viewer {
