@@ -165,8 +165,8 @@ a:hover {
 	box-sizing: border-box;
 	justify-content: flex-start;
 	box-sizing: border-box;
-	padding: var(--size-large-xx);
-	margin: var(--size-large-xx) 0 var(--size-large-xx) var(--size-large-xx);
+	padding: var(--size-large-x);
+	margin: var(--size-large) 0 var(--size-large) var(--size-large);
 	background: var(--color-mono-0);
 	border-radius: var(--size-small-x);
 }
@@ -216,7 +216,7 @@ a:hover {
 
 #image-viewer {
 	grid-area: 1 / 2 / 6 / 5;
-	padding: var(--size-large-xx);
+	padding: var(--size-large-x);
 	box-sizing: border-box;
 	text-align: center;
 	position: relative;
@@ -237,8 +237,8 @@ a:hover {
 #meta-viewer {
 	grid-area: 1 / 5 / 6 / 6;
 	box-sizing: border-box;
-	padding: var(--size-large-xx);
-	margin: var(--size-large-xx) var(--size-large-xx) var(--size-large-xx) 0;
+	padding: var(--size-large-x);
+	margin: var(--size-large) var(--size-large) var(--size-large) 0;
 	background: var(--color-mono-0);
 	border-radius: var(--size-small-x);
 }
